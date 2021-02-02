@@ -2,12 +2,23 @@
     "env": {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "react-app",
-        "airbnb"
+        "airbnb",
+        "plugin:import/errors", 
+        "plugin:import/warnings"
     ],
+    "parser": "babel-eslint",
+    "settings": {
+        "import/resolver": {
+          "node": {
+            "moduleDirectory": ["node_modules", "src/"]
+          }
+        }
+      },
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -23,6 +34,7 @@
         "react"
     ],
     "rules": {
+        "import/prefer-default-export":0,
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }
